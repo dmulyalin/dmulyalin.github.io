@@ -1,7 +1,7 @@
 # Site
-name: "radish"
-title: "radish"
-description: "Jekyll template, Medium styled, free for bloggers."
+name: "DMNetBlog"
+title: "Denis Mulyalin Networking Blog"
+description: "Site to share my projects, thoughts and ideas."
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: ''
@@ -15,10 +15,10 @@ permalink: /:title/
 authors:
   denis:
     name: denis
-    display_name: denis
+    display_name: Denis
     gravatar: e56154546cf4be74e393c62d1ae9f9d4
-    email: denis@gmail.com
-    web: https://www.wowthemes.net
+    web: https://github.com/dmulyalin
+    email: denis.mulyalin@gmail.com
     twitter: https://twitter.com/wowthemesnet
     description: "Author of redish"
 
