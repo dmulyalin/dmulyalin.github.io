@@ -13,7 +13,7 @@
         <meta name="author" content="Denis Mulyalin">
       
       
-        <link rel="canonical" href="https://dmulyalin.github.io/2022-08-07-5-efficient-ways-to-collect-show-commands-output-from-network-devices/">
+        <link rel="canonical" href="https://dmulyalin.github.io/2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-7.2.2">
@@ -446,19 +446,19 @@
                   <h1>5 Efficient Ways to Collect Show Commands Output From Network Devices</h1>
                 
                 <h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">#</a></h2>
-<p>Getting show commands output from network devices, what can be simpler you'd say - login 
+<p>Getting show commands output from network devices, what can be simpler - login 
 into device, issue show commands, copy output, create text file on a local file system, 
 paste copied output, save file, exit. And after doing 7 steps above, required output happily
 sits on the hard drive in a convenient spot ready for processing.</p>
-<p>Well, above process is certainly doable and likely sounds very familiar to many Network
+<p>Above process is certainly doable and likely sounds very familiar to many Network
 Engineers. However, what if we tasked to collect not 1 or 2 but 5, 10 or 100 commands
 and need to get them not from 1 or 2 but 2000 devices? That is there above
 process quickly falls short and the benefit of automation becomes apparent - hand it over
 to relentless robots running on our computer systems, happily doing any mundane task we
 throw at them as many times as we need in as big volumes as we want to.</p>
 <p>With that, let me introduce 5 solutions to the problem of collecting show commands output
-from network devices using Salt-Nornir proxy minion.</p>
-<h2 id="1-using-nrcli-inline-commands-arguments">1 - Using nr.cli Inline Commands Arguments<a class="headerlink" href="#1-using-nrcli-inline-commands-arguments" title="Permanent link">#</a></h2>
+from network devices using <a href="https://salt-nornir.readthedocs.io/">Salt-Nornir proxy minion</a>.</p>
+<h2 id="1-using-nrcli-inline-commands-arguments">1 - Using <code>nr.cli</code> Inline Commands Arguments<a class="headerlink" href="#1-using-nrcli-inline-commands-arguments" title="Permanent link">#</a></h2>
 <p>The simplest, exploratory way to get show commands output from network devices
 with Salt-Nornir is by using nr.cli function supplied with inline commands arguments:</p>
 <div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
