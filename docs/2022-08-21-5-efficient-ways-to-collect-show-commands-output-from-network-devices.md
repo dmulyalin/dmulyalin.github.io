@@ -8,12 +8,12 @@ date: 2022-08-21
 
 # Problem Statement
 
-Getting show commands output from network devices, what can be simpler you'd say - login 
-into device, issue show commands, copy output, create text file on a local file system, 
+Getting show commands output from network devices, what can be simpler - login
+into device, issue show commands, copy output, create text file on a local file system,
 paste copied output, save file, exit. And after doing 7 steps above, required output happily
 sits on the hard drive in a convenient spot ready for processing.
 
-Well, above process is certainly doable and likely sounds very familiar to many Network
+Above process is certainly doable and likely sounds very familiar to many Network
 Engineers. However, what if we tasked to collect not 1 or 2 but 5, 10 or 100 commands
 and need to get them not from 1 or 2 but 2000 devices? That is there above
 process quickly falls short and the benefit of automation becomes apparent - hand it over
@@ -21,7 +21,7 @@ to relentless robots running on our computer systems, happily doing any mundane 
 throw at them as many times as we need in as big volumes as we want to.
 
 With that, let me introduce 5 solutions to the problem of collecting show commands output
-from network devices using Salt-Nornir proxy minion.
+from network devices using [Salt-Nornir proxy minion](https://salt-nornir.readthedocs.io/).
 
 # 1 - Using nr.cli Inline Commands Arguments
 
@@ -151,7 +151,7 @@ file content:
 {% if "CORE" in host.name %}
 show clock
 show version
-{% elig "eos" in host.name %}
+{% elif "eos" in host.name %}
 show ip int brief
 show ntp
 show lldp neighbor
@@ -259,3 +259,12 @@ Promptless mode has these features:
 - supports device prompt change while collecting show commands output
 - multi line commands can be send to device
 - using `nowait=True` allows to send commands without waiting for prompt to come back
+
+# In Conclusion
+
+With above arsenal it should be easier to tackle the task of collecting show commands output
+from network devices. To automate that process even further, SaltStack supports Python API
+and REST API, Salt-Nornir inherits those capabilities as well.
+
+Hope you enjoyed reading this blog post. Feel free to visit
+[this page](https://github.com/dmulyalin/dmulyalin.github.io/issues) for comments and suggestions.
