@@ -1,0 +1,699 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Blog to share my thoughts, news and ideas">
+      
+      
+      
+        <meta name="author" content="Denis Mulyalin">
+      
+      
+        <link rel="canonical" href="https://dmulyalin.github.io/2022-08-07-5-efficient-ways-to-collect-show-commands-output-from-network-devices/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-7.2.2">
+    
+    
+      
+        <title>5 Efficient Ways to Collect Show Commands Output From Network Devices - Denis Mulyalin Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#problem-statement" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Denis Mulyalin Blog" class="md-header__button md-logo" aria-label="Denis Mulyalin Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Denis Mulyalin Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5 Efficient Ways to Collect Show Commands Output From Network Devices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../about/" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Posts
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Denis Mulyalin Blog" class="md-nav__button md-logo" aria-label="Denis Mulyalin Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Denis Mulyalin Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Posts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Posts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Posts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          5 Efficient Ways to Collect Show Commands Output From Network Devices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        5 Efficient Ways to Collect Show Commands Output From Network Devices
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem-statement" class="md-nav__link">
+    Problem Statement
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-using-nrcli-inline-commands-arguments" class="md-nav__link">
+    1 - Using nr.cli Inline Commands Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-source-show-commands-from-files" class="md-nav__link">
+    2 - Source Show Commands From Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-generate-show-commands-from-jinja2-templates" class="md-nav__link">
+    3 - Generate Show Commands From Jinja2 Templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-collecting-commands-in-a-loop" class="md-nav__link">
+    4 - Collecting Commands in a Loop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-using-different-connection-plugins" class="md-nav__link">
+    5 - Using Different Connection Plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem-statement" class="md-nav__link">
+    Problem Statement
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-using-nrcli-inline-commands-arguments" class="md-nav__link">
+    1 - Using nr.cli Inline Commands Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-source-show-commands-from-files" class="md-nav__link">
+    2 - Source Show Commands From Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-generate-show-commands-from-jinja2-templates" class="md-nav__link">
+    3 - Generate Show Commands From Jinja2 Templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-collecting-commands-in-a-loop" class="md-nav__link">
+    4 - Collecting Commands in a Loop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-using-different-connection-plugins" class="md-nav__link">
+    5 - Using Different Connection Plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>5 Efficient Ways to Collect Show Commands Output From Network Devices</h1>
+                
+                <h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">#</a></h2>
+<p>Getting show commands output from network devices, what can be simpler you'd say - login 
+into device, issue show commands, copy output, create text file on a local file system, 
+paste copied output, save file, exit. And after doing 7 steps above, required output happily
+sits on the hard drive in a convenient spot ready for processing.</p>
+<p>Well, above process is certainly doable and likely sounds very familiar to many Network
+Engineers. However, what if we tasked to collect not 1 or 2 but 5, 10 or 100 commands
+and need to get them not from 1 or 2 but 2000 devices? That is there above
+process quickly falls short and the benefit of automation becomes apparent - hand it over
+to relentless robots running on our computer systems, happily doing any mundane task we
+throw at them as many times as we need in as big volumes as we want to.</p>
+<p>With that, let me introduce 5 solutions to the problem of collecting show commands output
+from network devices using Salt-Nornir proxy minion.</p>
+<h2 id="1-using-nrcli-inline-commands-arguments">1 - Using nr.cli Inline Commands Arguments<a class="headerlink" href="#1-using-nrcli-inline-commands-arguments" title="Permanent link">#</a></h2>
+<p>The simplest, I'd say exploratory way to get show commands output from network devices
+with Salt-Nornir is by using nr.cli function supplied with inline commands arguments:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
+</code></pre></div>
+<p>That should print similar output to the terminal:</p>
+<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
+nrp1:
+    ----------
+    ceos1:
+        ----------
+        show clock:
+            Fri Jul 29 19:03:41 2022
+            Timezone: UTC
+            Clock source: local
+        show version:
+             cEOSLab
+            Hardware version:
+            Serial number:
+
+            &lt;omitted for brevity&gt;
+    ceos2:
+        ----------
+        show clock:
+            Fri Jul 29 19:03:41 2022
+            Timezone: UTC
+            Clock source: local
+        show version:
+             cEOSLab
+            Hardware version:
+            Serial number:
+
+            &lt;omitted for brevity&gt;
+</code></pre></div>
+<p>Copy and save output to per-host text files on your local file system. This time it took
+around 2 seconds to collect 2 commands from 2 devices, not bad.</p>
+<p>To get it one step further, instruct nrp1 proxy minion to save output into the files on
+the local (in relation to the minion process) file system, ready to be copied over.</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
+</code></pre></div>
+<p>Salt-Nornir will save output to <code>/var/salt-nonir/nrp1/files/</code> folder:</p>
+<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 cmd.run &quot;ls -l /var/salt-nornir/nrp1/files&quot;
+nrp1:
+    total 12
+    -rw-r--r--. 1 root root  532 Jul 29 17:09 my_commands__29_July_2022_17_09_10__22__ceos2.txt
+    -rw-r--r--. 1 root root  532 Jul 29 17:09 my_commands__29_July_2022_17_09_10__875__ceos1.txt
+</code></pre></div>
+<p>Can copy files from proxy minion or use <code>nr.file</code> function to retrieve output
+at any time. For example to read file content for ceos1 host only:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.file read filegroup=&quot;my_commands&quot; FB=ceos1
+</code></pre></div>
+<h2 id="2-source-show-commands-from-files">2 - Source Show Commands From Files<a class="headerlink" href="#2-source-show-commands-from-files" title="Permanent link">#</a></h2>
+<p>While you certainly can do this:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; &quot;show ip int brief&quot; &quot;show ntp&quot; &quot;show lldp neighbor&quot; &quot;show bgp sum&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
+</code></pre></div>
+<p>Its certainly going to take a lot of typing. More efficient way is to save commands
+into a text file on salt-master machine and request proxy minions to source commands
+to collect form that file.</p>
+<p>For example, this is <code>/etc/salt/cli/commands.txt</code> file content:</p>
+<div class="highlight"><pre><span></span><code>show clock
+show version
+show ip int brief
+show ntp
+show lldp neighbor
+show bgp sum
+</code></pre></div>
+<p>And this is how to point proxy minion to that file:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/commands.txt&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
+</code></pre></div>
+<p>Same outcome as before, but less typing and easy to reuse later.</p>
+<h2 id="3-generate-show-commands-from-jinja2-templates">3 - Generate Show Commands From Jinja2 Templates<a class="headerlink" href="#3-generate-show-commands-from-jinja2-templates" title="Permanent link">#</a></h2>
+<p>What if command need to contain per host details like source IP address as in ping
+or traceroute commands, solution is to use Jinja2 templates:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 &quot;traceroute 192.168.2.4 source {{ host.lo0_ip }}&quot; FL=&quot;ceos1, ceos2&quot;
+</code></pre></div>
+<p>Where <code>host.lo0_ip</code> sourced from host inventory data:</p>
+<div class="highlight"><pre><span></span><code>hosts:
+  ceos1:
+    data:
+      lo0_ip: 10.0.0.1
+  ceos2:
+    data:
+      lo0_ip: 10.0.0.2
+</code></pre></div>
+<p>But what if need to collect different commands output from different device types, Jinja2
+conditionals certainly can handle it, here is <code>/etc/salt/cli/conditional_commands.txt</code>
+file content:</p>
+<div class="highlight"><pre><span></span><code>{% if &quot;CORE&quot; in host.name %}
+show clock
+show version
+{% elig &quot;eos&quot; in host.name %}
+show ip int brief
+show ntp
+show lldp neighbor
+show bgp sum
+{% endif %}
+</code></pre></div>
+<p>To render above template and run generated commands:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/conditional_commands.txt&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
+</code></pre></div>
+<p>Another use case - what if I need to run commands on a per host basis, do I need to use
+Jinja2 conditionals as well - yes, can rely on Jinja2 conditional or can supply per-host
+files with commands. For example, this is the content of <code>/etc/salt/cli/commands_ceos1.txt</code>
+and <code>/etc/salt/cli/commands_ceos2.txt</code> files respectively:</p>
+<div class="highlight"><pre><span></span><code>show clock
+show version
+</code></pre></div>
+<p>and</p>
+<div class="highlight"><pre><span></span><code>show ip int brief
+show ntp
+show lldp neighbor
+show bgp sum
+</code></pre></div>
+<p><code>nr.cli</code> supports templating to source commands from different files:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/commands_{{ host.name }}.txt&quot;
+</code></pre></div>
+<h2 id="4-collecting-commands-in-a-loop">4 - Collecting Commands in a Loop<a class="headerlink" href="#4-collecting-commands-in-a-loop" title="Permanent link">#</a></h2>
+<p>Troubleshooting network problems often can benefit from collecting show commands output
+from multiple devices simultaneously. This can be easily accomplished using above tricks.
+But Salt-Nornir does not stop there allowing to collect show commands output from devices
+in a loop up to a certain number of times with predefined intervals. This comes in handy
+when problem is reproducible but only lasts for seconds</p>
+<p>This is how commands can be run in a loop:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show ip route&quot; repeat=10 repeat_interval=1 table=brief
+</code></pre></div>
+<p><code>table=brief</code> instructs Salt-Nornir to return nicely formatted text table to make it
+easier to read through the output.</p>
+<p>Another feature is capability to stop collecting show commands after certain pattern
+found in the output. Made up example - you want to collect "show ip route" output in a
+loop but stop if certain route becomes visible in the routing table.</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; repeat=100 stop_pattern=&quot;10.1.2.3/24&quot; table=brief
+</code></pre></div>
+<h2 id="5-using-different-connection-plugins">5 - Using Different Connection Plugins<a class="headerlink" href="#5-using-different-connection-plugins" title="Permanent link">#</a></h2>
+<p>Salt-Nornir makes it extremely easy to switch between connection methods making sure
+you have flexibility to choose what works best for you.</p>
+<p>For example this is how output can be collected using Netmiko plugin:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot;
+</code></pre></div>
+<p>Since Netmiko is a default connection method, no need to specify plugin to use. However,
+this is how different plugins can be invoked:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; plugin=netmiko
+salt nrp1 nr.cli &quot;show ip route&quot; plugin=napalm
+salt nrp1 nr.cli &quot;show ip route&quot; plugin=scrapli
+salt nrp1 nr.cli &quot;show ip route&quot; plugin=pyats
+</code></pre></div>
+<p>Salt-Nornir <code>nr.cli</code> supports Netmiko, NAPALM, Scrapli and PyATS to communicate with devices
+ocer CLI. Connection plugins parameters can be provided using Nornir inventory, refer to documentation
+<a href="https://salt-nornir.readthedocs.io/en/latest/Pillar%20and%20Inventory%20Examples.html">examples</a>
+for more details.</p>
+<p>Besides using different plugins, nr.cli also support
+<a href="https://nornir-salt.readthedocs.io/en/latest/Tasks/netmiko_send_command_ps.html">promptless (ps) mechanism</a>
+to collect output from devices. This mechanism based on Netmiko library but adds several enhancements
+to make process of collecting big amount of output from network devices more reliable.</p>
+<p>To use promptless mode specify <code>use_ps=True</code> for Netmiko plugin:</p>
+<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; plugin=netmiko use_ps=True
+</code></pre></div>
+<p>Promptless mode has these features:</p>
+<ul>
+<li>does not timeout on big chunks of data as long as device keeps transmitting data thanks to
+  using read and absolute timeouts</li>
+<li>supports device prompt change while collecting show commands output</li>
+<li>multi line commands can be send to device</li>
+<li>using <code>nowait=True</code> allows to send commands without waiting for prompt to come back</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              About
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/dmulyalin" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/DMulyalin" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "toc.follow"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.2b46852b.min.js"></script>
+      
+    
+  </body>
+</html>
