@@ -29,10 +29,6 @@
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
         
-          
-          
-          <meta name="theme-color" content="#2094f3">
-        
       
     
     
@@ -40,8 +36,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Source Serif Pro";--md-code-font-family:""}</style>
       
     
     
@@ -57,13 +53,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="teal">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="teal">
   
     
     <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -107,6 +107,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -163,10 +185,26 @@
 
 
   <li class="md-tabs__item">
-    <a href="../about/" class="md-tabs__link">
+    <a href=".." class="md-tabs__link">
       About
     </a>
   </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../posts/" class="md-tabs__link">
+        Blog
+      </a>
+    </li>
+  
 
       
         
@@ -205,7 +243,9 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Denis Mulyalin Blog" class="md-nav__button md-logo" aria-label="Denis Mulyalin Blog" data-md-component="logo">
       
@@ -226,9 +266,51 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href=".." class="md-nav__link">
         About
       </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Blog
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../posts/" class="md-nav__link">
+        Blog Posts
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -246,14 +328,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
-      <label class="md-nav__link" for="__nav_2">
+      <label class="md-nav__link" for="__nav_3">
         Posts
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Posts" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Posts
         </label>
@@ -355,71 +437,6 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#problem-statement" class="md-nav__link">
-    Problem Statement
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-using-nrcli-inline-commands-arguments" class="md-nav__link">
-    1 - Using nr.cli Inline Commands Arguments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-source-show-commands-from-files" class="md-nav__link">
-    2 - Source Show Commands From Files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-generate-show-commands-from-jinja2-templates" class="md-nav__link">
-    3 - Generate Show Commands From Jinja2 Templates
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-collecting-commands-in-a-loop" class="md-nav__link">
-    4 - Collecting Commands in a Loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-using-different-connection-plugins" class="md-nav__link">
-    5 - Using Different Connection Plugins
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -442,7 +459,7 @@ throw at them as many times as we need in as big volumes as we want to.</p>
 <p>With that, let me introduce 5 solutions to the problem of collecting show commands output
 from network devices using Salt-Nornir proxy minion.</p>
 <h2 id="1-using-nrcli-inline-commands-arguments">1 - Using nr.cli Inline Commands Arguments<a class="headerlink" href="#1-using-nrcli-inline-commands-arguments" title="Permanent link">#</a></h2>
-<p>The simplest, I'd say exploratory way to get show commands output from network devices
+<p>The simplest, exploratory way to get show commands output from network devices
 with Salt-Nornir is by using nr.cli function supplied with inline commands arguments:</p>
 <div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
 </code></pre></div>
@@ -477,7 +494,7 @@ nrp1:
 </code></pre></div>
 <p>Copy and save output to per-host text files on your local file system. This time it took
 around 2 seconds to collect 2 commands from 2 devices, not bad.</p>
-<p>To get it one step further, instruct nrp1 proxy minion to save output into the files on
+<p>To get it one step further, instruct <code>nrp1</code> proxy minion to save output into the files on
 the local (in relation to the minion process) file system, ready to be copied over.</p>
 <div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
 </code></pre></div>
@@ -631,7 +648,7 @@ to make process of collecting big amount of output from network devices more rel
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About" rel="prev">
+        <a href="../posts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Blog Posts" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -640,7 +657,7 @@ to make process of collecting big amount of output from network devices more rel
               <span class="md-footer__direction">
                 Previous
               </span>
-              About
+              Blog Posts
             </div>
           </div>
         </a>
@@ -689,7 +706,7 @@ to make process of collecting big amount of output from network devices more rel
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "toc.follow"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.2b46852b.min.js"></script>
