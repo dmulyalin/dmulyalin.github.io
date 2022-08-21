@@ -1,0 +1,44 @@
+site_name: Denis Mulyalin Blog
+site_author: Denis Mulyalin
+site_description: Blog to share my thoughts, news and ideas 
+site_url: https://dmulyalin.github.io/
+
+theme:
+  features:
+  - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.sections
+  - navigation.top
+  - toc.follow
+  icon:
+    repo: fontawesome/brands/github-alt
+  name: material
+  palette:
+    accent: teal
+    primary: blue
+    
+plugins:
+- search
+
+markdown_extensions:
+- admonition
+- pymdownx.details
+- attr_list
+- md_in_html
+- pymdownx.superfences
+- toc:
+    permalink: "#"
+    baselevel: 2
+        
+extra:
+  generator: false
+  social:
+  - icon: fontawesome/brands/github-alt
+    link: https://github.com/dmulyalin
+  - icon: fontawesome/brands/twitter
+    link: https://twitter.com/DMulyalin
+
+nav:
+- About: about.md
+- Posts:
+  - 2022-08-07-5-efficient-ways-to-collect-show-commands-output-from-network-devices.md
