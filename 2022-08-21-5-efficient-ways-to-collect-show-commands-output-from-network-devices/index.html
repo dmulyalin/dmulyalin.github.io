@@ -416,6 +416,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#in-conclusion" class="md-nav__link">
+    In Conclusion
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -446,8 +453,8 @@
                   <h1>5 Efficient Ways to Collect Show Commands Output From Network Devices</h1>
                 
                 <h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">#</a></h2>
-<p>Getting show commands output from network devices, what can be simpler - login 
-into device, issue show commands, copy output, create text file on a local file system, 
+<p>Getting show commands output from network devices, what can be simpler - login
+into device, issue show commands, copy output, create text file on a local file system,
 paste copied output, save file, exit. And after doing 7 steps above, required output happily
 sits on the hard drive in a convenient spot ready for processing.</p>
 <p>Above process is certainly doable and likely sounds very familiar to many Network
@@ -458,7 +465,7 @@ to relentless robots running on our computer systems, happily doing any mundane 
 throw at them as many times as we need in as big volumes as we want to.</p>
 <p>With that, let me introduce 5 solutions to the problem of collecting show commands output
 from network devices using <a href="https://salt-nornir.readthedocs.io/">Salt-Nornir proxy minion</a>.</p>
-<h2 id="1-using-nrcli-inline-commands-arguments">1 - Using <code>nr.cli</code> Inline Commands Arguments<a class="headerlink" href="#1-using-nrcli-inline-commands-arguments" title="Permanent link">#</a></h2>
+<h2 id="1-using-nrcli-inline-commands-arguments">1 - Using nr.cli Inline Commands Arguments<a class="headerlink" href="#1-using-nrcli-inline-commands-arguments" title="Permanent link">#</a></h2>
 <p>The simplest, exploratory way to get show commands output from network devices
 with Salt-Nornir is by using nr.cli function supplied with inline commands arguments:</p>
 <div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
@@ -548,7 +555,7 @@ file content:</p>
 <div class="highlight"><pre><span></span><code>{% if &quot;CORE&quot; in host.name %}
 show clock
 show version
-{% elig &quot;eos&quot; in host.name %}
+{% elif &quot;eos&quot; in host.name %}
 show ip int brief
 show ntp
 show lldp neighbor
@@ -622,6 +629,12 @@ to make process of collecting big amount of output from network devices more rel
 <li>multi line commands can be send to device</li>
 <li>using <code>nowait=True</code> allows to send commands without waiting for prompt to come back</li>
 </ul>
+<h2 id="in-conclusion">In Conclusion<a class="headerlink" href="#in-conclusion" title="Permanent link">#</a></h2>
+<p>With above arsenal it should be easier to tackle the task of collecting show commands output
+from network devices. To automate that process even further, SaltStack supports Python API
+and REST API, Salt-Nornir inherits those capabilities as well.</p>
+<p>Hope you enjoyed reading this blog post. Feel free to visit
+<a href="https://github.com/dmulyalin/dmulyalin.github.io/issues">this page</a> for comments and suggestions.</p>
                 
                   
                 
