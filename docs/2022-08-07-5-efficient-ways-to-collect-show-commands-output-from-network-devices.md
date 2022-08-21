@@ -25,7 +25,7 @@ from network devices using Salt-Nornir proxy minion.
 
 # 1 - Using nr.cli Inline Commands Arguments
 
-The simplest, I'd say exploratory way to get show commands output from network devices
+The simplest, exploratory way to get show commands output from network devices
 with Salt-Nornir is by using nr.cli function supplied with inline commands arguments:
 
 ```
@@ -67,7 +67,7 @@ nrp1:
 Copy and save output to per-host text files on your local file system. This time it took
 around 2 seconds to collect 2 commands from 2 devices, not bad.
 
-To get it one step further, instruct nrp1 proxy minion to save output into the files on
+To get it one step further, instruct `nrp1` proxy minion to save output into the files on
 the local (in relation to the minion process) file system, ready to be copied over.
 
 ```

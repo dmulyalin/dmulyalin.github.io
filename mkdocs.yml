@@ -7,16 +7,31 @@ theme:
   features:
   - navigation.tabs
   - navigation.tabs.sticky
-  - navigation.sections
   - navigation.top
-  - toc.follow
+  - toc.integrate
   icon:
     repo: fontawesome/brands/github-alt
   name: material
-  palette:
-    accent: teal
-    primary: blue
-    
+  font:
+    text: Source Serif Pro
+  icon:
+    repo: fontawesome/brands/github-alt
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      accent: teal
+      primary: grey
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      accent: teal
+      primary: grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+        
 plugins:
 - search
 
@@ -29,9 +44,11 @@ markdown_extensions:
 - toc:
     permalink: "#"
     baselevel: 2
-        
+- pymdownx.emoji:
+    emoji_index: !!python/name:materialx.emoji.twemoji
+    emoji_generator: !!python/name:materialx.emoji.to_svg
+      
 extra:
-  generator: false
   social:
   - icon: fontawesome/brands/github-alt
     link: https://github.com/dmulyalin
@@ -39,6 +56,9 @@ extra:
     link: https://twitter.com/DMulyalin
 
 nav:
-- About: about.md
+- About: index.md
+- Blog:
+  - posts.md
 - Posts:
   - 2022-08-07-5-efficient-ways-to-collect-show-commands-output-from-network-devices.md
+  
