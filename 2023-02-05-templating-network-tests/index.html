@@ -584,7 +584,7 @@ vlan 20
   name ACCESS
 </code></pre></div>
 <p>Bringing two above approaches together leads to conclusion that it should 
-be possible to make TestsProcessor tests suites dynamic - driven entirely 
+be possible to make TestsProcessor tests be dynamically driven entirely 
 by host's data. For example, if we have these two Nornir hosts:</p>
 <div class="highlight"><pre><span></span><code>hosts:
   jundevice-1:
@@ -612,8 +612,9 @@ groups:
   pattern: {{ host.software_version }}
   err_msg: Software version is wrong
 </code></pre></div>
-<p>producing host specific tests to run to validate device software version.</p>
-<p>Above idea was implemented in Nornir-Salt starting with release 0.16.0</p>
+<p>producing host specific tests to run to validate devices software versions.</p>
+<p>Above idea was implemented in Nornir-Salt starting with release 0.16.0, 
+<a href="https://nornir-salt.readthedocs.io/en/latest/Processors/TestsProcessor.html#using-tests-suite-templates">relevant documentation</a></p>
 <h2 id="scaling-up-using-salt-nornir">Scaling Up using Salt-Nornir<a class="headerlink" href="#scaling-up-using-salt-nornir" title="Permanent link">#</a></h2>
 <p>Using Nornir to run tests for a handful (up to hundreds) of devices is great, but
 doing same for bigger number (thousands) of devices requires non trivial
