@@ -13,14 +13,14 @@
         <meta name="author" content="Denis Mulyalin">
       
       
-        <link rel="canonical" href="https://dmulyalin.github.io/2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices/">
+        <link rel="canonical" href="https://dmulyalin.github.io/2023-02-05-templating-network-tests/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-7.2.2">
     
     
       
-        <title>5 Efficient Ways to Collect Show Commands Output From Network Devices - Denis Mulyalin Blog</title>
+        <title>Templating Network Tests - Denis Mulyalin Blog</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#problem-statement" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5 Efficient Ways to Collect Show Commands Output From Network Devices
+              Templating Network Tests
             
           </span>
         </div>
@@ -220,7 +220,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices/" class="md-tabs__link md-tabs__link--active">
         Posts
       </a>
     </li>
@@ -344,6 +344,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices/" class="md-nav__link">
+        5 Efficient Ways to Collect Show Commands Output From Network Devices
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -354,12 +366,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          5 Efficient Ways to Collect Show Commands Output From Network Devices
+          Templating Network Tests
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        5 Efficient Ways to Collect Show Commands Output From Network Devices
+        Templating Network Tests
       </a>
       
         
@@ -375,50 +387,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#problem-statement" class="md-nav__link">
-    Problem Statement
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-using-nrcli-inline-commands-arguments" class="md-nav__link">
-    1 - Using nr.cli Inline Commands Arguments
+  <a href="#meet-nornir-testsprocessor" class="md-nav__link">
+    Meet Nornir TestsProcessor
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-source-show-commands-from-files" class="md-nav__link">
-    2 - Source Show Commands From Files
+  <a href="#scaling-up-using-salt-nornir" class="md-nav__link">
+    Scaling Up using Salt-Nornir
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-generate-show-commands-from-jinja2-templates" class="md-nav__link">
-    3 - Generate Show Commands From Jinja2 Templates
+  <a href="#adding-netbox-into-the-mix" class="md-nav__link">
+    Adding Netbox into the mix
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-collecting-commands-in-a-loop" class="md-nav__link">
-    4 - Collecting Commands in a Loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-using-different-connection-plugins" class="md-nav__link">
-    5 - Using Different Connection Plugins
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-conclusion" class="md-nav__link">
-    In Conclusion
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
   </a>
   
 </li>
@@ -427,18 +425,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2023-02-05-templating-network-tests/" class="md-nav__link">
-        Templating Network Tests
-      </a>
     </li>
   
 
@@ -473,50 +459,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#problem-statement" class="md-nav__link">
-    Problem Statement
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-using-nrcli-inline-commands-arguments" class="md-nav__link">
-    1 - Using nr.cli Inline Commands Arguments
+  <a href="#meet-nornir-testsprocessor" class="md-nav__link">
+    Meet Nornir TestsProcessor
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-source-show-commands-from-files" class="md-nav__link">
-    2 - Source Show Commands From Files
+  <a href="#scaling-up-using-salt-nornir" class="md-nav__link">
+    Scaling Up using Salt-Nornir
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-generate-show-commands-from-jinja2-templates" class="md-nav__link">
-    3 - Generate Show Commands From Jinja2 Templates
+  <a href="#adding-netbox-into-the-mix" class="md-nav__link">
+    Adding Netbox into the mix
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-collecting-commands-in-a-loop" class="md-nav__link">
-    4 - Collecting Commands in a Loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-using-different-connection-plugins" class="md-nav__link">
-    5 - Using Different Connection Plugins
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-conclusion" class="md-nav__link">
-    In Conclusion
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
   </a>
   
 </li>
@@ -534,191 +506,284 @@
               
                 
                 
-                  <h1>5 Efficient Ways to Collect Show Commands Output From Network Devices</h1>
+                  <h1>Templating Network Tests</h1>
                 
-                <h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">#</a></h2>
-<p>Getting show commands output from network devices, what can be simpler - login
-into device, issue show commands, copy output, create text file on a local file system,
-paste copied output, save file, exit. And after doing 7 steps above, required output happily
-sits on the hard drive in a convenient spot ready for processing.</p>
-<p>Above process is certainly doable and likely sounds very familiar to many Network
-Engineers. However, what if we tasked to collect not 1 or 2 but 5, 10 or 100 commands
-and need to get them not from 1 or 2 but 2000 devices? That is there above
-process quickly falls short and the benefit of automation becomes apparent - hand it over
-to relentless robots running on our computer systems, happily doing any mundane task we
-throw at them as many times as we need in as big volumes as we want to.</p>
-<p>With that, let me introduce 5 solutions to the problem of collecting show commands output
-from network devices using <a href="https://salt-nornir.readthedocs.io/">Salt-Nornir proxy minion</a>.</p>
-<h2 id="1-using-nrcli-inline-commands-arguments">1 - Using nr.cli Inline Commands Arguments<a class="headerlink" href="#1-using-nrcli-inline-commands-arguments" title="Permanent link">#</a></h2>
-<p>The simplest, exploratory way to get show commands output from network devices
-with Salt-Nornir is by using nr.cli function supplied with inline commands arguments:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
-</code></pre></div>
-<p>That should print similar output to the terminal:</p>
-<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
-nrp1:
-    ----------
-    ceos1:
-        ----------
-        show clock:
-            Fri Jul 29 19:03:41 2022
-            Timezone: UTC
-            Clock source: local
-        show version:
-             cEOSLab
-            Hardware version:
-            Serial number:
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>Templating network devices configuration is a very common approach nowadays,
+network testing however, is rarely ( if at all) automated. Jinja2 comes to mind 
+when somebody mentions network templates, YAML also pops up as a common way 
+of expressing network related data.</p>
+<p>SaltStack, Ansible, Nornir and others provide native support for workflows and 
+payload templating using popular templating languages, this however rarely used to 
+automate network tests.</p>
+<p>The difficulty of doing network testing is due to the lack of structured data that 
+can be easily extracted from network devices. As a result, one of common ways of 
+dealing with network testing is to use show commands output to interpret devices state 
+and operator using that output coupled with expert knowledge decides if system
+is in a desired state or needs remediation.</p>
+<p>Luckily, if system created that can use plain text to encode tests content to 
+carry on with testing, that system is very close to templating those steps using 
+data driven approach.</p>
+<h2 id="meet-nornir-testsprocessor">Meet Nornir TestsProcessor<a class="headerlink" href="#meet-nornir-testsprocessor" title="Permanent link">#</a></h2>
+<p>In one of my previous 
+<a href="https://nornir.tech/2021/08/06/testing-your-network-with-nornir-testsprocessor/">blog posts</a>
+I had a chance to write about the fact that network tests can be classified based one
+the scope as local (unit), adjacent (integration) and network (system) tests, the focus of
+this write up is mainly on local and adjacent types of scenarios. This is due to the fact
+that TestProcessor was created to deal with data produced by a single device only.</p>
+<p>Original vision behind TestsProcessor was to take a piece of static YAML:</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Software version test</span><span class="w"></span>
+<span class="w">  </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">show version</span><span class="w"></span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contains</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;17.3.1&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">err_msg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Software version is wrong</span><span class="w"></span>
 
-            &lt;omitted for brevity&gt;
-    ceos2:
-        ----------
-        show clock:
-            Fri Jul 29 19:03:41 2022
-            Timezone: UTC
-            Clock source: local
-        show version:
-             cEOSLab
-            Hardware version:
-            Serial number:
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Logging configuration check</span><span class="w"></span>
+<span class="w">  </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;show</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">inc</span><span class="nv"> </span><span class="s">logging&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contains</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.0.1</span><span class="w"></span>
+<span class="w">  </span><span class="nt">err_msg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Logging configuration is wrong</span><span class="w"></span>
+</code></pre></div>
+<p>collect output from network devices and emit tests results:</p>
+<div class="highlight"><pre><span></span><code>+----+--------+-----------------------------+----------+---------------------------+
+|    | host   | name                        | result   | exception                 |
++====+========+=============================+==========+===========================+
+|  0 | R1     | Software version test       | FAIL     | Software version is wrong |
++----+--------+-----------------------------+----------+---------------------------+
+|  1 | R1     | Logging configuration check | PASS     |                           |
++----+--------+-----------------------------+----------+---------------------------+
+</code></pre></div>
+<p>Another networking industry common approach is to take data like:</p>
+<div class="highlight"><pre><span></span><code>HostName: switch1
 
-            &lt;omitted for brevity&gt;
+Vlans:
+  - VlanId: 10
+    VlanName: MGMT
+  - VlanId: 20
+    VlanName: ACCESS
 </code></pre></div>
-<p>Copy and save output to per-host text files on your local file system. This time it took
-around 2 seconds to collect 2 commands from 2 devices, not bad.</p>
-<p>To get it one step further, instruct <code>nrp1</code> proxy minion to save output into the files on
-the local (in relation to the minion process) file system, ready to be copied over.</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
+<p>couple with Jinja2 template:</p>
+<div class="highlight"><pre><span></span><code>hostname {{ HostName }}
+!
+{% for Vlan in Vlans -%}
+vlan {{ Vlan[&#39;VlanId&#39;] }}
+  name {{ Vlan[&#39;VlanName&#39;] }}
+!
+{% endfor -%}
 </code></pre></div>
-<p>Salt-Nornir will save output to <code>/var/salt-nonir/nrp1/files/</code> folder:</p>
-<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 cmd.run &quot;ls -l /var/salt-nornir/nrp1/files&quot;
-nrp1:
-    total 12
-    -rw-r--r--. 1 root root  532 Jul 29 17:09 my_commands__29_July_2022_17_09_10__22__ceos2.txt
-    -rw-r--r--. 1 root root  532 Jul 29 17:09 my_commands__29_July_2022_17_09_10__875__ceos1.txt
+<p>and produce network device configuration:</p>
+<div class="highlight"><pre><span></span><code>hostname switch1
+!
+vlan 10
+  name MGMT
+!
+vlan 20
+  name ACCESS
 </code></pre></div>
-<p>Can copy files from proxy minion or use <code>nr.file</code> function to retrieve output
-at any time. For example to read file content for ceos1 host only:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.file read filegroup=&quot;my_commands&quot; FB=ceos1
+<p>Combining above two approaches lead to conclusion that it should be possible
+to make TestsProcessor tests suites dynamic, driven entirely by host data. 
+For example, if we have these two Nornir hosts:</p>
+<div class="highlight"><pre><span></span><code>hosts:
+  jundevice-1:
+    hostname: 10.0.0.1
+    platform: juniper_junos
+    groups: [&quot;auth&quot;]
+    data:
+      software_version: 18.1R3-S9
+  xrdevice-1:
+    hostname: 10.0.0.2
+    platform: cisco_xr
+    groups: [&quot;auth&quot;]
+    data:
+      software_version: 7.5.2
+
+groups:
+  auth:
+    username: nornir
+    password: nornir
 </code></pre></div>
-<h2 id="2-source-show-commands-from-files">2 - Source Show Commands From Files<a class="headerlink" href="#2-source-show-commands-from-files" title="Permanent link">#</a></h2>
-<p>While you certainly can do this:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; &quot;show ip int brief&quot; &quot;show ntp&quot; &quot;show lldp neighbor&quot; &quot;show bgp sum&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
+<p>it is possible to write Jinja2 template like this:</p>
+<div class="highlight"><pre><span></span><code>- name: Software version test
+  task: show version
+  test: contains
+  pattern: {{ host.software_version }}
+  err_msg: Software version is wrong
 </code></pre></div>
-<p>Its certainly going to take a lot of typing. More efficient way is to save commands
-into a text file on salt-master machine and request proxy minions to source commands
-to collect form that file.</p>
-<p>For example, this is <code>/etc/salt/cli/commands.txt</code> file content:</p>
-<div class="highlight"><pre><span></span><code>show clock
-show version
-show ip int brief
-show ntp
-show lldp neighbor
-show bgp sum
+<p>producing host specific tests to run to validate device software version.</p>
+<p>Above idea was implemented in Nornir-Salt starting with release 0.16.0</p>
+<h2 id="scaling-up-using-salt-nornir">Scaling Up using Salt-Nornir<a class="headerlink" href="#scaling-up-using-salt-nornir" title="Permanent link">#</a></h2>
+<p>Using Nornir to run tests for a handful (hundreds) of devices is great, but
+doing same for bigger (much bigger) number of devices requires non trivial
+engineering. </p>
+<p>Salt-Nornir helps to scale network management using Nornir based proxy minions,
+each handling multiple devices. Hence, network testing also can be scaled out
+using Salt-Nornir proxy minions.</p>
+<p>For example, given the test suite on master at <code>/etc/salt/master/tests/testsuite-1.txt</code>:</p>
+<div class="highlight"><pre><span></span><code>- task: &quot;show version&quot;
+  test: contains
+  pattern: &quot;{{ host.software_version }}&quot;
+  name: check ceos version
+
+{% for interface in host.interfaces %}
+- task: &quot;show interface {{ interface.name }}&quot;
+  test: contains_lines
+  pattern: 
+    - {{ interface.admin_status }}
+    - {{ interface.line_status }}
+    - {{ interface.mtu }}
+    - {{ interface.description }}
+  name: check interface {{ interface.name }} status
+{% endfor %}
 </code></pre></div>
-<p>And this is how to point proxy minion to that file:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/commands.txt&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
-</code></pre></div>
-<p>Same outcome as before, but less typing and easy to reuse later.</p>
-<h2 id="3-generate-show-commands-from-jinja2-templates">3 - Generate Show Commands From Jinja2 Templates<a class="headerlink" href="#3-generate-show-commands-from-jinja2-templates" title="Permanent link">#</a></h2>
-<p>What if command need to contain per host details like source IP address as in ping
-or traceroute commands, solution is to use Jinja2 templates:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 &quot;traceroute 192.168.2.4 source {{ host.lo0_ip }}&quot; FL=&quot;ceos1, ceos2&quot;
-</code></pre></div>
-<p>Where <code>host.lo0_ip</code> sourced from host inventory data:</p>
+<p>coupled with this proxy minion pillar inventory:</p>
 <div class="highlight"><pre><span></span><code>hosts:
   ceos1:
+    hostname: 10.0.1.4
+    platform: arista_eos
+    username: nornir
+    password: nornir
     data:
-      lo0_ip: 10.0.0.1
-  ceos2:
-    data:
-      lo0_ip: 10.0.0.2
+      software_version: cEOS
+      interfaces:
+        - name: Ethernet1
+          admin_status: is up
+          description: East-West Campus uplink
+          line_status: line protocol is up
+          mtu: IP MTU 9200
+        - name: Loopback0
+          admin_status: is up
+          description: RID and MGMT loopback
+          line_status: line protocol is up
+          mtu: IP MTU 1500
 </code></pre></div>
-<p>But what if need to collect different commands output from different device types, Jinja2
-conditionals certainly can handle it, here is <code>/etc/salt/cli/conditional_commands.txt</code>
-file content:</p>
-<div class="highlight"><pre><span></span><code>{% if &quot;CORE&quot; in host.name %}
-show clock
-show version
-{% elif &quot;eos&quot; in host.name %}
-show ip int brief
-show ntp
-show lldp neighbor
-show bgp sum
+<p>tests suite can be run using command:</p>
+<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 nr.test suite=&quot;salt://tests/testsuite-1.txt&quot; table=brief
+nrp1:
+    +----+--------+----------------------------------+----------+-------------+
+    |    | host   | name                             | result   | exception   |
+    +====+========+==================================+==========+=============+
+    |  0 | ceos1  | check ceos version               | PASS     |             |
+    +----+--------+----------------------------------+----------+-------------+
+    |  1 | ceos1  | check interface Ethernet1 status | PASS     |             |
+    +----+--------+----------------------------------+----------+-------------+
+    |  2 | ceos1  | check interface Loopback1 status | PASS     |             |
+    +----+--------+----------------------------------+----------+-------------+
+[root@salt-master /]# 
+</code></pre></div>
+<p>As you can see, tests content was dynamically rendered according to data stored in
+host's inventory. Combine this with SaltStack reach data sourcing capabilities and
+We have a workable solution to test our networks.</p>
+<h2 id="adding-netbox-into-the-mix">Adding Netbox into the mix<a class="headerlink" href="#adding-netbox-into-the-mix" title="Permanent link">#</a></h2>
+<p>Netbox is a DCIM/IPAM software to model and document modern networks. Salt-Nornir
+comes with Netbox Pillar and Netbox Execution Modules, combined, they are capable 
+of sourcing any data from Netbox over REST or GraphQL API right from your templates.</p>
+<p>Netbox allows to model device interfaces. Example of interfaces modeled in Netbox
+for ceos1 device:</p>
+<p><img alt="netbox-ceos1-interfaces" src="../images/netbox-ceos1-interfaces.png" /></p>
+<p>Using Salt-Nornir execution module Netbox <code>get_interfaces</code> functions we can retrieve 
+device interfaces data from Netbox:</p>
+<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 nr.netbox get_interfaces device_name=ceos1 --out=yaml
+nrp1:
+  Ethernet1:
+    bridge: null
+    bridge_interfaces: []
+    child_interfaces: []
+    custom_fields: {}
+    description: East-West Campus uplink
+    duplex: FULL
+    enabled: true
+    last_updated: &#39;2022-12-30T11:21:59.922564+00:00&#39;
+    mac_address: null
+    member_interfaces: []
+    mode: null
+    mtu: 9200
+    parent: null
+    speed: null
+    tagged_vlans: []
+    tags: []
+    untagged_vlan: null
+    vrf: null
+    wwn: null
+  Loopback0:
+    bridge: null
+    bridge_interfaces: []
+    child_interfaces: []
+    custom_fields: {}
+    description: RID and MGMT loopback
+    duplex: null
+    enabled: true
+    last_updated: &#39;2022-12-30T11:22:32.225050+00:00&#39;
+    mac_address: null
+    member_interfaces: []
+    mode: null
+    mtu: 1500
+    parent: null
+    speed: null
+    tagged_vlans: []
+    tags: []
+    untagged_vlan: null
+    vrf: null
+    wwn: null
+</code></pre></div>
+<p>SaltStack conveniently allows to call execution module functions from within the Jinja2 
+templates, enabling us to source any data directly during template rendering process.
+Let use that in this template producing tests suite accordingly:</p>
+<div class="highlight"><pre><span></span><code>{% set interfaces = salt[&#39;nr.netbox&#39;](&#39;get_interfaces&#39;, &#39;ceos1&#39;) %}
+
+{% for interface_name, interface_data in interfaces.items() %}
+- task: &quot;show interface {{ interface_name }}&quot;
+  test: contains_lines
+  pattern: 
+    - {{ interface_data.mtu }}
+    - {{ interface_data.description }}
+{% if interface_data.enabled == True %}
+    - &quot;is up, line protocol is up&quot;
+{% elif interface_data.enabled == False %}
+    - &quot;is down, admin down&quot;
 {% endif %}
+  name: check interface {{ interface_name }} status
+{% endfor %}
 </code></pre></div>
-<p>To render above template and run generated commands:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/conditional_commands.txt&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
+<p>Calling <code>salt['nr.netbox']('get_interfaces', 'ceos1')</code> inside of the template gives
+us access to device interfaces data following with for loop that renders individual
+interface tests. Running above tests suite will produce these results:</p>
+<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 nr.test suite=&quot;salt://tests/test_suite_ceos1_netbox.j2&quot; FB=ceos1 table=brief
+nrp1:
+    +----+--------+----------------------------------+----------+-----------+
+    |    | host   | name                             | result   | exception |
+    +====+========+==================================+==========+===========+
+    |  0 | ceos1  | check interface Loopback0 status | PASS     |           |
+    +----+--------+----------------------------------+----------+-----------+
+    |  1 | ceos1  | check interface Ethernet1 status | PASS     |           |
+    +----+--------+----------------------------------+----------+-----------+
 </code></pre></div>
-<p>Another use case - what if I need to run commands on a per host basis, do I need to use
-Jinja2 conditionals as well - yes, can rely on Jinja2 conditional or can supply per-host
-files with commands. For example, this is the content of <code>/etc/salt/cli/commands_ceos1.txt</code>
-and <code>/etc/salt/cli/commands_ceos2.txt</code> files respectively:</p>
-<div class="highlight"><pre><span></span><code>show clock
-show version
+<p>There is also an option to do <code>dry_run</code> to produce tests suite content only without
+running the actual tests:</p>
+<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 nr.test suite=&quot;salt://tests/test_suite_ceos1_netbox.j2&quot; FB=ceos1 dry_run=True --out=yaml
+nrp1:
+  ceos1:
+  - name: check interface Loopback0 status
+    pattern:
+    - 1500
+    - RID and MGMT loopback
+    - is up, line protocol is up
+    task: show interface Loopback0
+    test: contains_lines
+  - name: check interface Ethernet1 status
+    pattern:
+    - 9200
+    - East-West Campus uplink
+    - is up, line protocol is up
+    task: show interface Ethernet1
+    test: contains_lines
+[root@salt-master /]#
 </code></pre></div>
-<p>and</p>
-<div class="highlight"><pre><span></span><code>show ip int brief
-show ntp
-show lldp neighbor
-show bgp sum
-</code></pre></div>
-<p><code>nr.cli</code> supports templating to source commands from different files:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/commands_{{ host.name }}.txt&quot;
-</code></pre></div>
-<h2 id="4-collecting-commands-in-a-loop">4 - Collecting Commands in a Loop<a class="headerlink" href="#4-collecting-commands-in-a-loop" title="Permanent link">#</a></h2>
-<p>Troubleshooting network problems often can benefit from collecting show commands output
-from multiple devices simultaneously. This can be easily accomplished using above tricks.
-But Salt-Nornir does not stop there allowing to collect show commands output from devices
-in a loop up to a certain number of times with predefined intervals. This comes in handy
-when problem is reproducible but only lasts for seconds</p>
-<p>This is how commands can be run in a loop:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show ip route&quot; repeat=10 repeat_interval=1 table=brief
-</code></pre></div>
-<p><code>table=brief</code> instructs Salt-Nornir to return nicely formatted text table to make it
-easier to read through the output.</p>
-<p>Another feature is capability to stop collecting show commands after certain pattern
-found in the output. Made up example - you want to collect "show ip route" output in a
-loop but stop if certain route becomes visible in the routing table.</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; repeat=100 stop_pattern=&quot;10.1.2.3/24&quot; table=brief
-</code></pre></div>
-<h2 id="5-using-different-connection-plugins">5 - Using Different Connection Plugins<a class="headerlink" href="#5-using-different-connection-plugins" title="Permanent link">#</a></h2>
-<p>Salt-Nornir makes it extremely easy to switch between connection methods making sure
-you have flexibility to choose what works best for you.</p>
-<p>For example this is how output can be collected using Netmiko plugin:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot;
-</code></pre></div>
-<p>Since Netmiko is a default connection method, no need to specify plugin to use. However,
-this is how different plugins can be invoked:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; plugin=netmiko
-salt nrp1 nr.cli &quot;show ip route&quot; plugin=napalm
-salt nrp1 nr.cli &quot;show ip route&quot; plugin=scrapli
-salt nrp1 nr.cli &quot;show ip route&quot; plugin=pyats
-</code></pre></div>
-<p>Salt-Nornir <code>nr.cli</code> supports Netmiko, NAPALM, Scrapli and PyATS to communicate with devices
-using CLI. Connection plugins parameters can be provided using Nornir inventory, refer to documentation
-<a href="https://salt-nornir.readthedocs.io/en/latest/Pillar%20and%20Inventory%20Examples.html">examples</a>
-for more details.</p>
-<p>Besides using different plugins, nr.cli also support
-<a href="https://nornir-salt.readthedocs.io/en/latest/Tasks/netmiko_send_command_ps.html">promptless (ps) mechanism</a>
-to collect output from devices. This mechanism based on Netmiko library but adds several enhancements
-to make process of collecting big amount of output from network devices more reliable.</p>
-<p>To use promptless mode specify <code>use_ps=True</code> for Netmiko plugin:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; plugin=netmiko use_ps=True
-</code></pre></div>
-<p>Promptless mode has these features:</p>
-<ul>
-<li>does not timeout on big chunks of data as long as device keeps transmitting data thanks to
-  using read and absolute timeouts</li>
-<li>supports device prompt change while collecting show commands output</li>
-<li>multi line commands can be send to device</li>
-<li>using <code>nowait=True</code> allows to send commands without waiting for prompt to come back</li>
-</ul>
-<h2 id="in-conclusion">In Conclusion<a class="headerlink" href="#in-conclusion" title="Permanent link">#</a></h2>
-<p>With above arsenal it should be easier to tackle the task of collecting show commands output
-from network devices. To automate that process even further, SaltStack supports Python API
-and REST API, Salt-Nornir inherits those capabilities as well.</p>
-<p>Hope you enjoyed reading this blog post. For comments and suggestions feel free to
-<a href="https://github.com/dmulyalin/dmulyalin.github.io/issues">open an issue</a>.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">#</a></h2>
+<p>Running data driven tests on devices show commands output is not an easy task,
+Nornir TestsProcessor, SaltStack Salt-Nornir Proxy Minion and Netbox all combined 
+or on its own, provide a great deal of flexibility and capabilities to successfully 
+execute in that direction.</p>
+<p>Thank you for reading to the end, all the best you and your networks.</p>
                 
                   
                 
@@ -745,7 +810,7 @@ and REST API, Salt-Nornir inherits those capabilities as well.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../posts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Blog Posts" rel="prev">
+        <a href="../2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5 Efficient Ways to Collect Show Commands Output From Network Devices" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -754,26 +819,11 @@ and REST API, Salt-Nornir inherits those capabilities as well.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Blog Posts
+              5 Efficient Ways to Collect Show Commands Output From Network Devices
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../2023-02-05-templating-network-tests/" class="md-footer__link md-footer__link--next" aria-label="Next: Templating Network Tests" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Templating Network Tests
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
