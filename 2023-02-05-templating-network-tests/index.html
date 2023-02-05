@@ -619,9 +619,9 @@ groups:
 <p>Using Nornir to run tests for a handful (up to hundreds) of devices is great, but
 doing same for bigger number (thousands) of devices requires non trivial
 engineering. </p>
-<p>Salt-Nornir helps to scale network management using Nornir based proxy minions,
-each handling multiple devices. Hence, network testing also can be scaled out
-using Salt-Nornir proxy minions.</p>
+<p><a href="https://salt-nornir.readthedocs.io/">Salt-Nornir</a> helps to scale network management
+using Nornir based proxy minions, each handling multiple devices. Hence, network 
+testing also can be scaled out using Salt-Nornir proxy minions.</p>
 <p>For example, given the test suite on a master at <code>/etc/salt/master/tests/testsuite-1.txt</code>:</p>
 <div class="highlight"><pre><span></span><code>- task: &quot;show version&quot;
   test: contains
@@ -678,9 +678,10 @@ nrp1:
 host's inventory. Combine this with SaltStack reach data sourcing capabilities and
 We have a workable solution to test our networks.</p>
 <h2 id="adding-netbox-into-the-mix">Adding Netbox into the mix<a class="headerlink" href="#adding-netbox-into-the-mix" title="Permanent link">#</a></h2>
-<p>Netbox is a DCIM/IPAM software to model and document modern networks. Salt-Nornir
-comes with Netbox Pillar and Netbox Execution Modules, combined, they are capable 
-of sourcing any data from Netbox over REST or GraphQL API right from your templates.</p>
+<p><a href="https://github.com/netbox-community/netbox">Netbox</a> is a DCIM/IPAM software to model 
+and document modern networks. Salt-Nornir comes with Netbox Pillar and Netbox Execution 
+Modules, combined, they are capable of sourcing any data from Netbox over REST or 
+GraphQL API right from your templates.</p>
 <p>Netbox allows to model devices, here is an example of interfaces modeled in Netbox
 for ceos1 device:</p>
 <p><img alt="netbox-ceos1-interfaces" src="../images/netbox-ceos1-interfaces.png" /></p>
