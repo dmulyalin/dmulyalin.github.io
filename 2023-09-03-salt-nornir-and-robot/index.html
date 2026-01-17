@@ -13,14 +13,14 @@
         <meta name="author" content="Denis Mulyalin">
       
       
-        <link rel="canonical" href="https://dmulyalin.github.io/2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices/">
+        <link rel="canonical" href="https://dmulyalin.github.io/2023-09-03-salt-nornir-and-robot/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-7.2.2">
     
     
       
-        <title>5 Efficient Ways to Collect Show Commands Output From Network Devices - Denis Mulyalin Blog</title>
+        <title>Salt-Nornir and ROBOT - Denis Mulyalin Blog</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#problem-statement" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5 Efficient Ways to Collect Show Commands Output From Network Devices
+              Salt-Nornir and ROBOT
             
           </span>
         </div>
@@ -356,11 +356,54 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../2023-09-03-salt-nornir-and-robot/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Salt-Nornir and ROBOT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Salt-Nornir and ROBOT
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-network-with-salt-nornir-and-robot" class="md-nav__link">
+    Test the network with Salt-Nornir and ROBOT
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -380,89 +423,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          5 Efficient Ways to Collect Show Commands Output From Network Devices
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices/" class="md-nav__link">
         5 Efficient Ways to Collect Show Commands Output From Network Devices
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#problem-statement" class="md-nav__link">
-    Problem Statement
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-using-nrcli-inline-commands-arguments" class="md-nav__link">
-    1 - Using nr.cli Inline Commands Arguments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-source-show-commands-from-files" class="md-nav__link">
-    2 - Source Show Commands From Files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-generate-show-commands-from-jinja2-templates" class="md-nav__link">
-    3 - Generate Show Commands From Jinja2 Templates
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-collecting-commands-in-a-loop" class="md-nav__link">
-    4 - Collecting Commands in a Loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-using-different-connection-plugins" class="md-nav__link">
-    5 - Using Different Connection Plugins
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-conclusion" class="md-nav__link">
-    In Conclusion
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -497,50 +462,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#problem-statement" class="md-nav__link">
-    Problem Statement
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-using-nrcli-inline-commands-arguments" class="md-nav__link">
-    1 - Using nr.cli Inline Commands Arguments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-source-show-commands-from-files" class="md-nav__link">
-    2 - Source Show Commands From Files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-generate-show-commands-from-jinja2-templates" class="md-nav__link">
-    3 - Generate Show Commands From Jinja2 Templates
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-collecting-commands-in-a-loop" class="md-nav__link">
-    4 - Collecting Commands in a Loop
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-using-different-connection-plugins" class="md-nav__link">
-    5 - Using Different Connection Plugins
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-conclusion" class="md-nav__link">
-    In Conclusion
+  <a href="#test-the-network-with-salt-nornir-and-robot" class="md-nav__link">
+    Test the network with Salt-Nornir and ROBOT
   </a>
   
 </li>
@@ -558,194 +488,30 @@
               
                 
                 
-                  <h1>5 Efficient Ways to Collect Show Commands Output From Network Devices</h1>
+                  <h1>Salt-Nornir and ROBOT</h1>
                 
                 <blockquote>
-<p>21 Aug 2022 by Denis Mulyalin</p>
+<p>9 Sep 2023 by Denis Mulyalin</p>
 </blockquote>
-<h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">#</a></h2>
-<p>Getting show commands output from network devices, what can be simpler - login
-into device, issue show commands, copy output, create text file on a local file system,
-paste copied output, save file, exit. And after doing 7 steps above, required output happily
-sits on the hard drive in a convenient spot ready for processing.</p>
-<p>Above process is certainly doable and likely sounds very familiar to many Network
-Engineers. However, what if we tasked to collect not 1 or 2 but 5, 10 or 100 commands
-and need to get them not from 1 or 2 but 2000 devices? That is there above
-process quickly falls short and the benefit of automation becomes apparent - hand it over
-to relentless robots running on our computer systems, happily doing any mundane task we
-throw at them as many times as we need in as big volumes as we want to.</p>
-<p>With that, let me introduce 5 solutions to the problem of collecting show commands output
-from network devices using <a href="https://salt-nornir.readthedocs.io/">Salt-Nornir proxy minion</a>.</p>
-<h2 id="1-using-nrcli-inline-commands-arguments">1 - Using nr.cli Inline Commands Arguments<a class="headerlink" href="#1-using-nrcli-inline-commands-arguments" title="Permanent link">#</a></h2>
-<p>The simplest, exploratory way to get show commands output from network devices
-with Salt-Nornir is by using nr.cli function supplied with inline commands arguments:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>Starting with <a href="https://github.com/dmulyalin/salt-nornir/releases/tag/0.19.0">release 0.19.0</a> 
+Salt-Nornir got integration with <a href="https://robotframework.org/">ROBOT Framework</a>
+for processes automation.</p>
+<p>ROBOT is a general purpose workflow execution engine primarily targeting
+programmatic testing of the infrastructure. Integration with Salt-Nornir
+allows to execute tasks and workflows expressed using powerful 
+<a href="https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html">ROBOT Framework DSL</a> 
+(Domain SPecific Language) once again extending the horizon of functionality
+available to us for addressing network automation use cases.</p>
+<p>Moreover, ROBOT Framework possesses significant 
+<a href="https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#report-file">reporting capabilities</a>
+all available for use with Salt-Nornir now.</p>
+<h2 id="test-the-network-with-salt-nornir-and-robot">Test the network with Salt-Nornir and ROBOT<a class="headerlink" href="#test-the-network-with-salt-nornir-and-robot" title="Permanent link">#</a></h2>
+<p>One of the main reasons for Salt-Nornir and ROBOT integration was ROBOT Framework 
+reporting capabilities, especially in combination with <code>nr.test</code> execution results.</p>
+<p>For example using this test suite:</p>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
-<p>That should print similar output to the terminal:</p>
-<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot;
-nrp1:
-    ----------
-    ceos1:
-        ----------
-        show clock:
-            Fri Jul 29 19:03:41 2022
-            Timezone: UTC
-            Clock source: local
-        show version:
-             cEOSLab
-            Hardware version:
-            Serial number:
-
-            &lt;omitted for brevity&gt;
-    ceos2:
-        ----------
-        show clock:
-            Fri Jul 29 19:03:41 2022
-            Timezone: UTC
-            Clock source: local
-        show version:
-             cEOSLab
-            Hardware version:
-            Serial number:
-
-            &lt;omitted for brevity&gt;
-</code></pre></div>
-<p>Copy and save output to per-host text files on your local file system. This time it took
-around 2 seconds to collect 2 commands from 2 devices, not bad.</p>
-<p>To get it one step further, instruct <code>nrp1</code> proxy minion to save output into the files on
-the local (in relation to the minion process) file system, ready to be copied over.</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
-</code></pre></div>
-<p>Salt-Nornir will save output to <code>/var/salt-nonir/nrp1/files/</code> folder:</p>
-<div class="highlight"><pre><span></span><code>[root@salt-master /]# salt nrp1 cmd.run &quot;ls -l /var/salt-nornir/nrp1/files&quot;
-nrp1:
-    total 12
-    -rw-r--r--. 1 root root  532 Jul 29 17:09 my_commands__29_July_2022_17_09_10__22__ceos2.txt
-    -rw-r--r--. 1 root root  532 Jul 29 17:09 my_commands__29_July_2022_17_09_10__875__ceos1.txt
-</code></pre></div>
-<p>Can copy files from proxy minion or use <code>nr.file</code> function to retrieve output
-at any time. For example to read file content for ceos1 host only:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.file read filegroup=&quot;my_commands&quot; FB=ceos1
-</code></pre></div>
-<h2 id="2-source-show-commands-from-files">2 - Source Show Commands From Files<a class="headerlink" href="#2-source-show-commands-from-files" title="Permanent link">#</a></h2>
-<p>While you certainly can do this:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show version&quot; &quot;show ip int brief&quot; &quot;show ntp&quot; &quot;show lldp neighbor&quot; &quot;show bgp sum&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
-</code></pre></div>
-<p>Its certainly going to take a lot of typing. More efficient way is to save commands
-into a text file on salt-master machine and request proxy minions to source commands
-to collect form that file.</p>
-<p>For example, this is <code>/etc/salt/cli/commands.txt</code> file content:</p>
-<div class="highlight"><pre><span></span><code>show clock
-show version
-show ip int brief
-show ntp
-show lldp neighbor
-show bgp sum
-</code></pre></div>
-<p>And this is how to point proxy minion to that file:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/commands.txt&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
-</code></pre></div>
-<p>Same outcome as before, but less typing and easy to reuse later.</p>
-<h2 id="3-generate-show-commands-from-jinja2-templates">3 - Generate Show Commands From Jinja2 Templates<a class="headerlink" href="#3-generate-show-commands-from-jinja2-templates" title="Permanent link">#</a></h2>
-<p>What if command need to contain per host details like source IP address as in ping
-or traceroute commands, solution is to use Jinja2 templates:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 &quot;traceroute 192.168.2.4 source {{ host.lo0_ip }}&quot; FL=&quot;ceos1, ceos2&quot;
-</code></pre></div>
-<p>Where <code>host.lo0_ip</code> sourced from host inventory data:</p>
-<div class="highlight"><pre><span></span><code>hosts:
-  ceos1:
-    data:
-      lo0_ip: 10.0.0.1
-  ceos2:
-    data:
-      lo0_ip: 10.0.0.2
-</code></pre></div>
-<p>But what if need to collect different commands output from different device types, Jinja2
-conditionals certainly can handle it, here is <code>/etc/salt/cli/conditional_commands.txt</code>
-file content:</p>
-<div class="highlight"><pre><span></span><code>{% if &quot;CORE&quot; in host.name %}
-show clock
-show version
-{% elif &quot;eos&quot; in host.name %}
-show ip int brief
-show ntp
-show lldp neighbor
-show bgp sum
-{% endif %}
-</code></pre></div>
-<p>To render above template and run generated commands:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/conditional_commands.txt&quot; FL=&quot;ceos1, ceos2&quot; tf=&quot;my_commands&quot;
-</code></pre></div>
-<p>Another use case - what if I need to run commands on a per host basis, do I need to use
-Jinja2 conditionals as well - yes, can rely on Jinja2 conditional or can supply per-host
-files with commands. For example, this is the content of <code>/etc/salt/cli/commands_ceos1.txt</code>
-and <code>/etc/salt/cli/commands_ceos2.txt</code> files respectively:</p>
-<div class="highlight"><pre><span></span><code>show clock
-show version
-</code></pre></div>
-<p>and</p>
-<div class="highlight"><pre><span></span><code>show ip int brief
-show ntp
-show lldp neighbor
-show bgp sum
-</code></pre></div>
-<p><code>nr.cli</code> supports templating to source commands from different files:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli commands=&quot;salt://cli/commands_{{ host.name }}.txt&quot;
-</code></pre></div>
-<h2 id="4-collecting-commands-in-a-loop">4 - Collecting Commands in a Loop<a class="headerlink" href="#4-collecting-commands-in-a-loop" title="Permanent link">#</a></h2>
-<p>Troubleshooting network problems often can benefit from collecting show commands output
-from multiple devices simultaneously. This can be easily accomplished using above tricks.
-But Salt-Nornir does not stop there allowing to collect show commands output from devices
-in a loop up to a certain number of times with predefined intervals. This comes in handy
-when problem is reproducible but only lasts for seconds</p>
-<p>This is how commands can be run in a loop:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show clock&quot; &quot;show ip route&quot; repeat=10 repeat_interval=1 table=brief
-</code></pre></div>
-<p><code>table=brief</code> instructs Salt-Nornir to return nicely formatted text table to make it
-easier to read through the output.</p>
-<p>Another feature is capability to stop collecting show commands after certain pattern
-found in the output. Made up example - you want to collect "show ip route" output in a
-loop but stop if certain route becomes visible in the routing table.</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; repeat=100 stop_pattern=&quot;10.1.2.3/24&quot; table=brief
-</code></pre></div>
-<h2 id="5-using-different-connection-plugins">5 - Using Different Connection Plugins<a class="headerlink" href="#5-using-different-connection-plugins" title="Permanent link">#</a></h2>
-<p>Salt-Nornir makes it extremely easy to switch between connection methods making sure
-you have flexibility to choose what works best for you.</p>
-<p>For example this is how output can be collected using Netmiko plugin:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot;
-</code></pre></div>
-<p>Since Netmiko is a default connection method, no need to specify plugin to use. However,
-this is how different plugins can be invoked:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; plugin=netmiko
-salt nrp1 nr.cli &quot;show ip route&quot; plugin=napalm
-salt nrp1 nr.cli &quot;show ip route&quot; plugin=scrapli
-salt nrp1 nr.cli &quot;show ip route&quot; plugin=pyats
-</code></pre></div>
-<p>Salt-Nornir <code>nr.cli</code> supports Netmiko, NAPALM, Scrapli and PyATS to communicate with devices
-using CLI. Connection plugins parameters can be provided using Nornir inventory, refer to documentation
-<a href="https://salt-nornir.readthedocs.io/en/latest/Pillar%20and%20Inventory%20Examples.html">examples</a>
-for more details.</p>
-<p>Besides using different plugins, nr.cli also support
-<a href="https://nornir-salt.readthedocs.io/en/latest/Tasks/netmiko_send_command_ps.html">promptless (ps) mechanism</a>
-to collect output from devices. This mechanism based on Netmiko library but adds several enhancements
-to make process of collecting big amount of output from network devices more reliable.</p>
-<p>To use promptless mode specify <code>use_ps=True</code> for Netmiko plugin:</p>
-<div class="highlight"><pre><span></span><code>salt nrp1 nr.cli &quot;show ip route&quot; plugin=netmiko use_ps=True
-</code></pre></div>
-<p>Promptless mode has these features:</p>
-<ul>
-<li>does not timeout on big chunks of data as long as device keeps transmitting data thanks to
-  using read and absolute timeouts</li>
-<li>supports device prompt change while collecting show commands output</li>
-<li>multi line commands can be send to device</li>
-<li>using <code>nowait=True</code> allows to send commands without waiting for prompt to come back</li>
-</ul>
-<h2 id="in-conclusion">In Conclusion<a class="headerlink" href="#in-conclusion" title="Permanent link">#</a></h2>
-<p>With above arsenal it should be easier to tackle the task of collecting show commands output
-from network devices. To automate that process even further, SaltStack supports Python API
-and REST API, Salt-Nornir inherits those capabilities as well.</p>
-<p>Hope you enjoyed reading this blog post. For comments and suggestions feel free to
-<a href="https://github.com/dmulyalin/dmulyalin.github.io/issues">open an issue</a>.</p>
                 
                   
                 
@@ -772,7 +538,7 @@ and REST API, Salt-Nornir inherits those capabilities as well.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../2023-02-05-templating-network-tests/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Templating Network Tests" rel="prev">
+        <a href="../2026-Jan-19-NorFab-intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: NorFab: Network Automation as a Fabric (Not Another Script)" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -781,11 +547,26 @@ and REST API, Salt-Nornir inherits those capabilities as well.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Templating Network Tests
+              NorFab: Network Automation as a Fabric (Not Another Script)
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../2023-02-05-templating-network-tests/" class="md-footer__link md-footer__link--next" aria-label="Next: Templating Network Tests" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Templating Network Tests
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
