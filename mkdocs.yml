@@ -1,6 +1,6 @@
 site_name: Denis Mulyalin Blog
 site_author: Denis Mulyalin
-site_description: Blog to share my thoughts, news and ideas 
+site_description: Blog to share my thoughts, news and ideas
 site_url: https://dmulyalin.github.io/
 
 theme:
@@ -8,7 +8,7 @@ theme:
   - navigation.tabs
   - navigation.tabs.sticky
   - navigation.top
-  - toc.integrate
+#  - toc.integrate
   icon:
     repo: fontawesome/brands/github-alt
   name: material
@@ -16,22 +16,29 @@ theme:
     text: Source Serif Pro
   icon:
     repo: fontawesome/brands/github-alt
-  palette: 
+  palette:
     # Palette toggle for light mode
     - scheme: default
-      accent: teal
+      accent: indigo
       primary: grey
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
-      accent: teal
+      accent: indigo
       primary: grey
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-        
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid.js
+  
 plugins:
 - search
 
@@ -40,14 +47,18 @@ markdown_extensions:
 - pymdownx.details
 - attr_list
 - md_in_html
-- pymdownx.superfences
+- pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_div_format
 - toc:
     permalink: "#"
     baselevel: 2
 - pymdownx.emoji:
     emoji_index: !!python/name:materialx.emoji.twemoji
     emoji_generator: !!python/name:materialx.emoji.to_svg
-      
+
 extra:
   social:
   - icon: fontawesome/brands/github-alt
@@ -60,5 +71,7 @@ nav:
 - Blog:
   - posts.md
 - Posts:
+  - 2026-Jan-19-NorFab-intro.md
+  - 2023-09-03-salt-nornir-and-robot.md
+  - 2023-02-05-templating-network-tests.md
   - 2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices.md
-  

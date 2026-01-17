@@ -6,6 +6,8 @@ authors:
 date: 2022-08-21
 ---
 
+> 21 Aug 2022 by Denis Mulyalin
+
 # Problem Statement
 
 Getting show commands output from network devices, what can be simpler - login
@@ -237,7 +239,7 @@ salt nrp1 nr.cli "show ip route" plugin=pyats
 ```
 
 Salt-Nornir `nr.cli` supports Netmiko, NAPALM, Scrapli and PyATS to communicate with devices
-ocer CLI. Connection plugins parameters can be provided using Nornir inventory, refer to documentation
+using CLI. Connection plugins parameters can be provided using Nornir inventory, refer to documentation
 [examples](https://salt-nornir.readthedocs.io/en/latest/Pillar%20and%20Inventory%20Examples.html)
 for more details.
 
@@ -266,5 +268,5 @@ With above arsenal it should be easier to tackle the task of collecting show com
 from network devices. To automate that process even further, SaltStack supports Python API
 and REST API, Salt-Nornir inherits those capabilities as well.
 
-Hope you enjoyed reading this blog post. Feel free to visit
-[this page](https://github.com/dmulyalin/dmulyalin.github.io/issues) for comments and suggestions.
+Hope you enjoyed reading this blog post. For comments and suggestions feel free to
+[open an issue](https://github.com/dmulyalin/dmulyalin.github.io/issues).

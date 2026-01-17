@@ -2,17 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dmulyalin.github.io/</loc>
-         <lastmod>2022-08-21</lastmod>
+         <lastmod>2023-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dmulyalin.github.io/2022-08-21-5-efficient-ways-to-collect-show-commands-output-from-network-devices/</loc>
-         <lastmod>2022-08-21</lastmod>
+         <lastmod>2023-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmulyalin.github.io/2023-02-05-templating-network-tests/</loc>
+         <lastmod>2023-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dmulyalin.github.io/posts/</loc>
-         <lastmod>2022-08-21</lastmod>
+         <lastmod>2023-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

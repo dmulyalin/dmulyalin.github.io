@@ -12,3 +12,11 @@ List of my public projects:
 - [Salt-Nornir](https://github.com/dmulyalin/salt-nornir)
 - [YANPD](https://github.com/dmulyalin/YANPD)
 - [N2G](https://github.com/dmulyalin/N2G)
+- [PICLE](https://github.com/dmulyalin/picle)
+- [NORFAB](https://github.com/dmulyalin/NORFAB)
+
+Connect with me on [LinkedIn](linkedin.com/in/denis-mulyalin-711a8b63) or [Twitter](https://twitter.com/DMulyalin)
+
+Want to hire me or need help, reach out [d.mulyalin@gmail.com](mailto:d.mulyalin@gmail.com?subject=Job) to discuss
+
+Feel like you want to [sponsor me or buy me a coffee](https://paypal.me/dmulyalin)

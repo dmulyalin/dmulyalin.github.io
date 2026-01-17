@@ -4,17 +4,18 @@ version = "0.1.0"
 description = ""
 authors = ["Denis <d.mulyalin@gmail.com>"]
 license = "MIT"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.9"
-mkdocs = { version = "1.2.4", optional = false, markers = "python_version >= '3.7'" }
-mkdocs-material = { version = "7.2.2", optional = false, markers = "python_version >= '3.7'" }
-mkdocs-material-extensions = { version = "1.0.1", optional = false, markers = "python_version >= '3.7'" }
-mkdocstrings = { version = "0.18.*", optional = false, markers = "python_version >= '3.7'", extras = ["python"] } 
-pygments = { version = "2.11", optional = false, markers = "python_version >= '3.7'" }
-pymdown-extensions = { version = "9.3", optional = false, markers = "python_version >= '3.7'" }
+python = "^3.10"
+mkdocs = { version = "*", optional = false, markers = "python_version >= '3.7'" }
+mkdocs-material = { version = "*", optional = false, markers = "python_version >= '3.7'" }
+mkdocs-material-extensions = { version = "*", optional = false, markers = "python_version >= '3.7'" }
+mkdocstrings = { version = "*", optional = false, markers = "python_version >= '3.7'", extras = ["python"] } 
+pygments = { version = "*", optional = false, markers = "python_version >= '3.7'" }
+pymdown-extensions = { version = "*", optional = false, markers = "python_version >= '3.7'" }
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
